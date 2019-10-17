@@ -5,6 +5,7 @@ jobs:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
+      - setup_remote_docker
       - run: docker build -t dos2009/redmoon:8.0 .
       - run: docker push dos2009/redmoon:8.0
 workflows:
