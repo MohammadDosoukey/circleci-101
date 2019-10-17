@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  one:
+  build:
     docker:
       - image: dos2009/redmoon:7.0
     steps:
@@ -12,26 +12,8 @@ jobs:
           root: my_workspace
           paths:
             - echo-output
-  two:
-    docker:
-      - image: circleci/ruby:2.4.1
-    steps:
-      - checkout
-      - run: echo "A more familiar hi"
-      - attach_workspace:
-          at: my_workspace
-          
-      - run:  |
-          if [[ $(cat my_workspace/echo-output) == "Trying out workspaces" ]]; then
-            echo "It worked !";
-          else
-            echo "Nope ! "; exit 1
-          fi
 workflows:
   version: 2
-  one_and_two:
+  building:
     jobs:
-      - one
-      - two:
-          requires:
-            - one
+      - build
