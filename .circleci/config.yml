@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: docker build -t dos2009/redmoon:8.0 .
+      - run: docker build -t dos2009/redmoon:latest .
       - run:
               name: Publish Docker Image to Docker Hub
               command: |
