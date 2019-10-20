@@ -19,6 +19,7 @@ jobs:
       - run: go get github.com/jstemmer/go-junit-report
       - run: git clone https://github.com/MohammadDosoukey/demogo
       - run: cd demogo && go build 
+      - run: ./demo
       
     
   add:
