@@ -23,6 +23,8 @@ jobs:
       - run: git clone https://github.com/MohammadDosoukey/demogo
       - run: cd demogo && go build && ./demogo
       #- run: git remote add origin https://github.com/MohammadDosoukey/demogo.git
+      - run: git config --global user.email "Cdos@mudomain.org" 
+      - run: git config --global user.name "Cdos"
       - run: git add demogo
       - run: git commit -m "demogo-circle" demogo
       - run: git push
