@@ -26,7 +26,7 @@ jobs:
       - run: git config --global user.email "Cdos@mudomain.org" 
       - run: git config --global user.name "Cdos"
       - run: cd demogo && git add demogo && git commit -m "demogo-circle" demogo
-      - run: cd demogo && git push
+      - run: cd demogo && git tag -a v2.0 -m "demogo" && git push origin v2.0
 
   add:
     docker:
