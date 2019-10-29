@@ -11,6 +11,9 @@ jobs:
 
     steps:
       - checkout
+      - add_ssh_key:
+          fingerprints:
+            - "5c:99:6a:17:16:5a:30:ec:17:70:f9:90:63:ec:1f:a2"
       - run: mkdir -p $TEST_RESULTS
       # Normally, this step would be in a custom primary image;
       # we've added it here for the sake of explanation.
@@ -20,7 +23,11 @@ jobs:
       - run: git clone https://github.com/MohammadDosoukey/demogo
       - run: cd demogo && go build
       - run: ./demogo
-    
+      - run: git remote add origin https://github.com/MohammadDosoukey/demogo.git
+      - run: git add demogo
+      - run: git commit -m "demogo-circle" demogo
+      - run: git push
+
   add:
     docker:
       - image: circleci/ruby:2.4.1
